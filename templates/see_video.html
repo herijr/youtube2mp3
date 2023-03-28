@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="css/style.css" rel="stylesheet">
+<title>Youtube para MP3</title>
+</head>
+<body>
+  <div class="nav">
+    <a class="nav-link active" href="/">Youtube para Mp3</a>
+</div>
+  <div class="container">
+    <div class="content">
+      <h1><a href="/"><span class="you">Youtube</span></a> para MP3</h1>
+      <br>
+      <h3>
+        {{title}}
+      </h3>
+      <img class="img-responsive" src="{{thumb}}">
+      <br><br>
+      <form action="{{ url_for('download_video') }}" method='POST'>
+          <input type="hidden" value="{{filepath}}" name="filepath" >
+          <input type="submit" class="btn" value="Download Mp3">
+      </form>
+  </div>
+</div>
+  <div class="footer">
+    <p>Herivelto Junior © 2023</p>
+  </div>
+</div>
+</body>
+</html>

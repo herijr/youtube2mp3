@@ -1,0 +1,38 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="css/style.css" rel="stylesheet">
+<title>Youtube para MP3</title>
+    <script>
+      function show(){
+        document.getElementById("show").style.display = "flex";
+      }
+    </script>
+</head>
+
+<body>
+  <div class="nav">
+    <a class="nav-link active" href="/">Youtube para Mp3</a>
+</div>
+  <div class="container">
+    <div class="content">
+      <a href="/"><h1><span class="you">Youtube</span></a> para MP3</h1>
+      <br>
+      <p>Converta vídeos do Youtube para arquivos MP3 de graça e sem precisar instalar nenhum programa.</p>
+      <form action="" method="POST">
+        <input type="text" placeholder="Coloque aqui o link para o video..." name="url"><br><br>
+        <button type="submit" class="btn" onclick="show()">Converter</button>
+      </form>
+      <br><br>
+      <div id="show" style="padding: 20px; width: 50%; margin: 10px auto; border-radius: 4px; color :#235746; background-color: #D4EDDA; display: none">
+        Convertendo, pode levar até 2 minutos, por favor espere...
+      </div>
+    </div>
+</div>
+<div class="footer">
+  <p>Herivelto Junior © 2023</p>
+</div>
+</body>
+</html>
