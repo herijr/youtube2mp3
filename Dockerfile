@@ -1,28 +1,19 @@
-# syntax=docker/dockerfile:1.4
-FROM --platform=$BUILDPLATFORM python:3.10-alpine AS builder
+FROM ubuntu:20.04
+
+ARG DEBIAN_FRONTEND=noninteractive
+
+RUN apt update; apt install -y python3-pip ffmpeg; apt clean
 
 WORKDIR /app
 
 COPY requirements.txt /app
-RUN --mount=type=cache,target=/root/.cache/pip \
-    pip3 install -r requirements.txt
+
+RUN python3 -m pip install -r requirements.txt
 
 COPY . /app
 
+EXPOSE 8000
+
 ENTRYPOINT ["python3"]
+
 CMD ["app.py"]
-
-FROM builder as dev-envs
-
-RUN <<EOF
-apk update
-apk add git
-apk add ffmpeg
-EOF
-
-RUN <<EOF
-addgroup -S docker
-adduser -S --shell /bin/bash --ingroup docker vscode
-EOF
-# install Docker tools (cli, buildx, compose)
-COPY --from=gloursdocker/docker / /
